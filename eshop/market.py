@@ -102,10 +102,6 @@ def cart_page():
 
 @app.route('/Login')
 def login_page():
-    return render_template('Login/login.html')
-
-@app.route('/Sign Up')
-def signUp_page():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -121,6 +117,32 @@ def signUp_page():
         cursor = mysql.cursor()
         insert_query = "INSERT INTO users (username, password) VALUES (%s, %s)"
         cursor.execute(insert_query, (username, password))
+        mysql.commit()  # Commit changes to the database
+        cursor.close()
+        mysql.close()
+
+        return 'Signup successfull'
+    return render_template('Login/login.html')
+
+@app.route('/Sign Up')
+def signUp_page():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        repeat_pass = request.form['repeat_pass']
+
+        #Connect to MySQL database
+        mysql = mysql.connector.connect(
+            host = app.config['MYSQL_HOST'],
+            user = app.config['MYSQL_USER'],
+            database =  app.config['MYSQL_DB']
+        )
+
+        # Execute SQL query to insert user's credentials
+        cursor = mysql.cursor()
+        insert_query = "INSERT INTO users (username, password) VALUES (%s, %s)"
+        cursor.execute(insert_query, (username,email, repeat_pass, password))
         mysql.commit()  # Commit changes to the database
         cursor.close()
         mysql.close()
