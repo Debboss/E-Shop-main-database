@@ -1,0 +1,123 @@
+:root {
+  --primary-color: #3f3e3e;
+  --secondary-color: #0be0b2;
+  --third-color: #f5f5f5;
+  --fourth-color: #252525;
+  --fifth-color: #e0e0e0;
+}
+.navbar-nav li::marker {
+  content: none;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--fourth-color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: var(--third-color); /* Set default text color */
+}
+
+h2,
+h5 {
+  margin: 0;
+}
+
+h2 {
+  color: var(--third-color);
+}
+
+h3 {
+  color: var(--secondary-color);
+}
+
+h5 {
+  color: var(--fifth-color);
+  font-weight: 400;
+}
+
+.btn-primary {
+  background: var(--secondary-color);
+  color: var(--third-color);
+  padding: 10px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.5s;
+  border: none;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--third-color);
+  color: var(--secondary-color);
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allows cards to wrap to the next line if there's not enough space */
+}
+
+.pricing-card {
+  width: 300px;
+  height: 450px;
+  background: var(--primary-color);
+  border-radius: 5px;
+  box-shadow: 0 0px 10px var(--secondary-color);
+  margin: 20px 10px; /* Adjusted margin for spacing between cards */
+  padding: 20px;
+  transition: 0.5s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pricing-card .btn-primary {
+  margin-top: auto; /* Ensure button sticks to bottom */
+  margin-bottom: 20px; /* Set the distance from the bottom */
+}
+
+.pricing-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0px 20px var(--secondary-color);
+}
+
+.label-best {
+  background: var(--secondary-color);
+  border-radius: 5px 0 0 5px;
+  position: absolute;
+  top: 15px;
+  right: 0px;
+  padding: 10px;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 30px;
+  color: var(--third-color);
+  margin-top: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--fifth-color);
+}
+
+li::marker {
+  content: "🚀";
+}
+
+.navbar {
+  z-index: 1000; /* Ensure the navbar appears above other elements */
+}

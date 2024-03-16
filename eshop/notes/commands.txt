@@ -1,0 +1,8 @@
+Run the following commands in your PowerShell
+
+1) $env:FLASK_APP = "market"
+
+2) $env:FLASK_APP
+
+3) flask run
+
