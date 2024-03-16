@@ -1,6 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'your_username'
+app.config['MYSQL_DB'] = 'your_database'
 
 @app.route('/')
 @app.route('/home')
@@ -102,6 +106,26 @@ def login_page():
 
 @app.route('/Sign Up')
 def signUp_page():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        #Connect to MySQL database
+        mysql = mysql.connector.connect(
+            host = app.config['MYSQL_HOST'],
+            user = app.config['MYSQL_USER'],
+            database =  app.config['MYSQL_DB']
+        )
+
+        # Execute SQL query to insert user's credentials
+        cursor = mysql.cursor()
+        insert_query = "INSERT INTO users (username, password) VALUES (%s, %s)"
+        cursor.execute(insert_query, (username, password))
+        mysql.commit()  # Commit changes to the database
+        cursor.close()
+        mysql.close()
+
+        return 'Signup successfull'
     return render_template('Sign Up/signUp.html')
 
 
