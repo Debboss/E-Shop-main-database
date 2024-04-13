@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <style>
+      :root {
+        --white-light: rgba(255, 255, 255, 0.5);
+        --alice-blue: #f8f9fa;
+        --carribean-green: #40c9a2;
+        --gray: #ededed;
+      }
+      body {
+        background-color: #212121;
+        color: white;
+        padding-top: 70px;
+      }
+      * {
+        box-sizing: border-box;
+        font-family: Raleway;
+        color: #777;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+      }
+
+      .nav ul {
+        margin: 0;
+      }
+
+      .nav li {
+        display: inline;
+      }
+
+      .nav a {
+        display: inline-block;
+        padding: 0.5em;
+        color: white;
+        text-decoration: none;
+      }
+
+      .main-nav {
+        text-align: center;
+        font-size: 1.1em;
+        font-weight: lighter;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .main-nav li {
+        padding: 0 5%;
+      }
+
+      .nav a:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .main-header {
+        background-color: rgba(0, 0, 0, 0.6);
+        background-image: url("Images/Header Background.jpg");
+        background-blend-mode: multiply;
+        background-size: cover;
+        padding-bottom: 30px;
+      }
+
+      .band-name {
+        text-align: center;
+        margin: 0;
+        font-size: 4em;
+        font-family: "Booter - Zero Zero";
+        font-weight: normal;
+        color: white;
+      }
+
+      .band-name-large {
+        font-size: 8em;
+      }
+
+      .content-section {
+        margin: 1em;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 1.5em;
+      }
+      .section-header {
+        font-family: "Metal Mania";
+        font-weight: normal;
+        color: white;
+        text-align: center;
+        font-size: 2.5em;
+      }
+
+      .about-band-image {
+        float: left;
+        height: 200px;
+        width: 200px;
+        margin: 15px;
+        border-radius: 50%;
+      }
+
+      .main-footer {
+        background-color: #56ccf2;
+        color: white;
+        padding: 0.25em 0;
+      }
+
+      .main-footer-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .main-footer-container ul {
+        flex-grow: 1;
+        text-align: end;
+      }
+
+      .footer-nav li {
+        padding: 0 0.5em;
+      }
+
+      .footer-nav img {
+        width: 30px;
+        height: 30px;
+      }
+
+      .btn {
+        text-align: center;
+        vertical-align: middle;
+        padding: 0.67em 0.67em;
+        cursor: pointer;
+      }
+
+      .btn-header {
+        margin: 0.5em 15% 2em 15%;
+        color: white;
+        border: 2px solid #2d9cdb;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 0;
+        font-size: 1.5em;
+        font-weight: lighter;
+        padding-left: 2em;
+        padding-right: 2em;
+      }
+
+      .btn-header:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-play {
+        display: block;
+        margin: 0 auto;
+        color: #2d9cdb;
+        font-size: 4em;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        padding: 0;
+        text-align: center;
+      }
+
+      .btn-primary {
+        color: white;
+        background-color: #56ccf2;
+        border: none;
+        border-radius: 0.3em;
+        font-weight: bold;
+      }
+
+      .btn-primary:hover {
+        background-color: #2d9cdb;
+      }
+
+      .tour-row {
+        border-bottom: 1px solid white;
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+      }
+
+      .tour-row:last-child {
+        border: none;
+      }
+
+      .tour-item {
+        display: inline-block;
+        padding-right: 0.5em;
+      }
+
+      .tour-date {
+        color: white;
+        width: 11%;
+        font-weight: bold;
+      }
+
+      .tour-city {
+        width: 24%;
+      }
+
+      .tour-arena {
+        width: 42%;
+      }
+
+      .tour-btn {
+        max-width: 19%;
+      }
+
+      .shop-item {
+        margin: 30px;
+      }
+
+      .shop-item-title {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.5em;
+        color: white;
+        margin-bottom: 15px;
+      }
+
+      .shop-item-image {
+        height: 250px;
+      }
+
+      .shop-item-details {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+      }
+
+      .shop-item-price {
+        flex-grow: 1;
+        color: #333;
+      }
+
+      .shop-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .cart-header {
+        font-weight: bold;
+        font-size: 1.25em;
+        color: white;
+      }
+
+      .cart-column {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid white;
+        margin-right: 1.5em;
+        padding-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      .cart-row {
+        display: flex;
+      }
+
+      .cart-item {
+        width: 45%;
+      }
+
+      .cart-price {
+        width: 20%;
+        font-size: 1.2em;
+        color: white;
+      }
+
+      .cart-quantity {
+        width: 35%;
+      }
+
+      .cart-item-title {
+        color: white;
+        margin-left: 0.5em;
+        font-size: 1.2em;
+      }
+
+      .cart-item-image {
+        width: 75px;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .btn-danger {
+        color: white;
+        background-color: #eb5757;
+        border: none;
+        border-radius: 0.3em;
+        font-weight: bold;
+      }
+
+      .btn-danger:hover {
+        background-color: #cc4c4c;
+      }
+
+      .cart-quantity-input {
+        height: 34px;
+        width: 50px;
+        border-radius: 5px;
+        border: 1px solid #56ccf2;
+        background-color: #eee;
+        color: black;
+        padding: 0;
+        text-align: center;
+        font-size: 1.2em;
+        margin-right: 25px;
+      }
+
+      .cart-row:last-child {
+        border-bottom: 1px solid white;
+      }
+
+      .cart-row:last-child .cart-column {
+        border: none;
+      }
+
+      .cart-total {
+        text-align: end;
+        margin-top: 10px;
+        margin-right: 10px;
+      }
+
+      .cart-total-title {
+        font-weight: bold;
+        font-size: 1.5em;
+        color: white;
+        margin-right: 20px;
+      }
+
+      .cart-total-price {
+        color: white;
+        font-size: 1.1em;
+      }
+
+      .btn-purchase {
+        display: block;
+        margin: 40px auto 80px auto;
+        font-size: 1.75em;
+      }
+      .product-header {
+    margin-top: 100px; /* Adjust this value to move the product headers down as needed */
+}
+  .products-container{
+    max-width: 650px;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 50px ;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 100px;
+  }
+  .product-header{
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 4px solid lightgreen;
+    margin: 40px auto;
+  }
+  .product-title{
+    width: 45%;
+  }
+  .price{
+    width: 15%;
+    display: flex;
+    align-items: center;
+  }
+  .quantity{
+    width: 30%;
+    border-bottom: 1px solid lightgreen;
+    display: flex;
+    align-items: center;
+  }
+  .total{
+    width: 10%;
+    border-bottom: 1px solid lightgreen;
+    display: flex;
+    align-items: center;
+  }
+  .product{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid lightgreen;
+    padding: 10px 0;
+    justify-content: space-around;
+  }
+    </style>
+
+    <title>E-Shop Name</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Your E-Shop</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <!-- Adjusted to push items to the left -->
+          <li class="nav-item">
+            <a class="nav-link" href="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="products">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="subscription_plans">Subscription Plans</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact_us">Contact Us</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <a class="navbar-brand ml-auto" href="cart">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="25"
+              fill="currentColor"
+              class="bi bi-cart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+              />
+            </svg>
+          </a>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Account
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-right"
+              aria-labelledby="navbarDropdown"
+            >
+              <a class="dropdown-item" href="Login">Login</a>
+              <a class="dropdown-item" href="Sign Up">Sign Up</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="products-container">
+        <div class="product-header">
+            <h5 class="product-title">PRODUCT</h5>
+            <h5 class="price">PRICE</h5>
+            <h5 class="quantity">QUANTITY</h5>
+            <h5 class="total">TOTAL</h5>
+        </div>
+    </div>
+    <div id="cartItems" class="cart-items">
+      
+  </div>
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Add this right after your existing script -->
+<script>
+  // Retrieve cart items from local storage
+  var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+// Function to display cart items
+function displayCartItems() {
+    var cartContainer = document.getElementById('cartItems');
+    cartContainer.innerHTML = ''; // Clear previous items
+
+    cartItems.forEach(function(item) {
+        var cartItem = document.createElement('div');
+        cartItem.classList.add('cart-row');
+        cartItem.innerHTML = `
+            <div class="cart-item">
+                <span class="cart-item-title">${item.name}</span>
+            </div>
+            <span class="price">$${item.price.toFixed(2)}</span>
+            <div class="cart-quantity">
+                <input class="cart-quantity-input" type="number" value="1">
+            </div>
+            <span class="cart-total-price">$${item.price.toFixed(2)}</span>
+            <button class="btn btn-danger" type="button">REMOVE</button>
+        `;
+        cartContainer.appendChild(cartItem);
+    });
+}
+
+// Display cart items on page load
+displayCartItems();
+
+</script>
+
+  </body>
+</html>
