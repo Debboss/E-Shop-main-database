@@ -1,15 +1,22 @@
 from flask import Flask, render_template, request
+import mysql.connector
+import hashlib
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'your_username'
-app.config['MYSQL_DB'] = 'your_database'
-
-@app.route('/')
-@app.route('/home')
-def home_page():
-    return render_template('home.html')
+# Connect to MySQL database
+def connect_to_database():
+    try:
+        connection = mysql.connector.connect(
+            host="DESKTOP-D1EGVS1-",
+            user="root",
+            login_database="login",  
+            signup_database="sign_up"
+        )
+        return connection
+    except mysql.connector.Error as error:
+        print("Error connecting to MySQL database:", error)
+        return None
 
 
 @app.route('/products')
